@@ -1,25 +1,35 @@
 import React from 'react' 
 import {Link} from 'react-router-dom'
 
-import './Nav.css'
-
 export default function Nav() {
   return (
-<nav className="navbar navbar-expand-lg bg-light">
-  <div className="container-fluid">
-      <ul className="navbar-nav">
-        <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="/">Inicio</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/about">Rick&Morty</Link>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/contact">Contacto</Link>
-        </li>
-      </ul>
-    </div>
 
-</nav>
+    <header>
+        <nav>
+                <div class="burguermenu">
+
+                </div>
+                <div className="header-nav">
+                    <Link className="header-nav" aria-current="page" to="/">Inicio</Link>
+                </div>
+                <div className="header-nav">
+                    <Link className="header-nav" aria-current="page" to="/populares">Populares</Link>
+                </div>
+                <div className="header-nav">
+                    <Link className="header-nav" aria-current="page" to="/encartel">En Cartel</Link>
+                </div>  
+                <div className="header-nav">
+                    <Link className="header-nav" to='/favourites' aria-current="page">Favoritos</Link>
+                </div>
+                <div className= "header-busqueda">
+                        <form action="./results.html" method="GET">
+                            <input type="search" name="busqueda" value="" placeholder="Buscar películas o series"/>
+                            <p class="alert"></p>
+                        </form>
+                        <a href="./results.html"><i class="fas fa-search lupa"></i></a>
+                </div>
+          </nav>
+    </header>
+            
   )
 }
