@@ -1,14 +1,84 @@
-import React from 'react'
+import React, {Component} from 'react';
+import Card from '../../components/card/Card';
+/* import Header from '../../components/header/Header'; */
 
-const Home = () => {
-  return (
-    <>
-        <h1>Home</h1>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-    </>
-  )
+class Home extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      cargando: true,
+      populares: [],
+      encartel: [],
+    };
+  }    
+
+ componentDidMount(){
+    const populares = "https://api.themoviedb.org/3/movie/popular?api_key=fcb65972de75954111563f90b05f9fed"
+    fetch(populares)
+        .then((res)=> res.json())
+        .then(datos =>{ 
+            console.log(datos)
+             return this.setState({
+            populares: datos.results,
+        })})
+        .catch( err => console.log(err))
+
+        const encartel = "https://api.themoviedb.org/3/movie/now_playing?api_key=fcb65972de75954111563f90b05f9fed"
+        fetch(encartel)
+            .then((res)=> res.json())
+            .then(datos =>{ 
+                console.log(datos)
+                 return this.setState({
+                encartel: datos.results,
+            })})
+            .catch( err => console.log(err))
+      
+    
+ }
+
+ agregarMas() {
+  // Logica para agregar mas personajes
+ }
+
+  render() {
+    return (
+
+
+<>
+    <div class="titulo">
+          <h2>• LO MÁS VISTO EN PELÍCULAS •</h2>
+    </div>
+    <section className='contenedor'>
+            {this.state.cargando === false ? (
+             <p>Cargando</p>
+            ) : (
+            this.state.populares.map(pelicula =>(
+               <Card key={pelicula.id} pelicula={pelicula}/>)
+           )
+           )  
+            }
+    </section>
+    <div class="titulo">
+          <h2>• PELÍCULAS EN CARTEL •</h2>
+    </div>
+    <section className='contenedor1'>
+            {this.state.cargando === false ? (
+             <p>Cargando</p>
+            ) : (
+            this.state.encartel.map(pelicula =>(
+             <Card key={pelicula.id} pelicula={pelicula}/>)
+          )
+           )  
+            }
+    </section>
+
+</>
+
+    
+    )
+          
+    
+  }
 }
-
-export default Home
+export default Home;

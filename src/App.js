@@ -4,6 +4,9 @@ import Footer from './components/footer/Footer';
 import Home from './pages/Home/Home';
 import DetailMovies from './pages/DetailMovies/DetailMovies';
 import NotFound from './pages/NotFound/NotFound';
+import Favoritos from './pages/Favoritos/Favoritos';
+import Populares from './pages/Populares/Populares';
+import Encartel from './pages/Encartel/Encartel';
 import {Switch, Route} from 'react-router-dom'
 
 function App() {
@@ -12,12 +15,11 @@ function App() {
     <Header/>
 
     <Switch>
-          <Route path="/" exact >
-            <Home />
-          </Route>
-          {/* <Route path="/about" component={Characters} /> */}
+          <Route path="/" exact component={Home} />
+          <Route path="/populares"  component={Populares} />
+          <Route path="/encartel"  component={Encartel} />
+          <Route path="/favourites" component={Favoritos} />
           <Route path="/movies/id/:id" component={DetailMovies} />
-          {/* <Route path="/contact" component={Contact}/> */}
           <Route component={NotFound}/>
     </Switch>
 

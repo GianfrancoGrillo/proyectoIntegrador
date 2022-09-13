@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
-
+import Card from '../../components/card/Card'
 class DetailMovies extends Component {
 
     constructor(props){
         super(props)
         this.state={
             id: this.props.match.params.id,
-            character: {}
+            pelicula: {}
         }
     }
 
     componentDidMount(){
-        fetch(`https://rickandmortyapi.com/api/character/${this.state.id}`)
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=fcb65972de75954111563f90b05f9fed${this.state.id}`)
             .then(res => res.json())
             .then(data => this.setState({
-                character: data
+            pelicula: data
             }))
             .catch(err => console.log(err))
     }
@@ -22,8 +22,8 @@ class DetailMovies extends Component {
   render(){
     return (
     <>
-        <img src={this.state.character.image} alt={this.state.character.name}/>
-        <h1>Detalle de {this.state.character.name}</h1>
+        <img src={this.state.pelicula.image} alt={this.state.pelicula.name}/>
+        <h1>Detalle de {this.state.pelicula.name}</h1>
     </>
   )
 }
