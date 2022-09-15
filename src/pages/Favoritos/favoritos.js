@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 /* import Header from '../../components/header/Header'; */
 import Card from '../../components/card/Card';
+
 class Favoritos extends Component {
   constructor() {
     super()
