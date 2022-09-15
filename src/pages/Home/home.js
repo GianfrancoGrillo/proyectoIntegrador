@@ -79,7 +79,7 @@ class Home extends Component {
             <p>Cargando</p>
           ) : (
             this.state.populares.map(pelicula => (
-              <Card key={pelicula.id} pelicula={pelicula} />
+              <Card key={pelicula.id} pelicula={pelicula} favorito={(pelicula)=> this.handleFavoritos(pelicula)} />
             )
 
             )
