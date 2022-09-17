@@ -14,6 +14,8 @@ class Favoritos extends Component {
     this.setState({ favoritos: JSON.parse(localStorage.getItem('favoritos')) })
   }
 
+ 
+
   render() {
     return (
       <>
@@ -23,6 +25,7 @@ class Favoritos extends Component {
 
       </>
     )
+    
   }
 }
 

@@ -58,7 +58,9 @@ class Home extends Component {
       })
   }
 }
-  borrarTarjeta(id){
+ 
+
+borrarTarjeta(id){
 
 const resto= this.state.populares.filter(populares=>  populares.id !== id)
 this.setState({

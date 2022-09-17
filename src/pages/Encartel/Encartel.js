@@ -37,6 +37,13 @@ class Encartel extends Component {
       }))
       .catch((error)=>{console.log(error)})
 }
+borrarTarjetaCartel(id){
+  
+  const resto= this.state.encartel.filter(encartel=>  encartel.id !== id)
+  this.setState({
+    encartel: resto
+  })
+}
 
   render() {
     return ( 
@@ -50,7 +57,9 @@ class Encartel extends Component {
              <p>Cargando</p>
             ) : (
             this.state.encartel.map(pelicula =>(
-             <Card key={pelicula.id} pelicula={pelicula}/>)
+             <Card key={pelicula.id}
+              pelicula={pelicula}
+              borrarCard={(personajeBorrar) => this.borrarTarjeta(personajeBorrar)}/>)
           )
            )  
             }
