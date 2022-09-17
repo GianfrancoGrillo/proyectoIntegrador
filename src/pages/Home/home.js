@@ -16,7 +16,6 @@ class Home extends Component {
   }    
 
  componentDidMount(){
-
     if (localStorage.length > 0) {
      this.setState({ favoritos: JSON.parse(localStorage.getItem('favoritos')) || [''] })
    } else {
@@ -47,21 +46,21 @@ class Home extends Component {
  }
 
  handleFavoritos(card){
-  if (this.state.favoritos.some(fav => card.id === fav.id)) {
+  console.log('Fede')
+  if (this.state.favoritos.some(fav => card.id === fav.id)) { 
+    console.log('Fede primer if')
       this.setState({favoritos: this.state.favoritos.filter(item => item.id !== card.id)}, () => {//asincronismo del this.State ",()"
           localStorage.setItem("favoritos", JSON.stringify(this.state.favoritos))
       })
-      console.log(this.state.favoritos.filter(item => item.id !== card.id))
-  } else {                                                               
+  } else {                       
+      console.log('Fede segundo if')                                        
       this.setState({favoritos: [...this.state.favoritos, card]}, () => { //el "..." significa traeme todo lo que estaba en el array favoritos y el ", card" significaa que le agrego la nueva card que te estoy pasando
           localStorage.setItem("favoritos", JSON.stringify(this.state.favoritos))
       })
   }
 }
  
-
 borrarTarjeta(id){
-
 const resto= this.state.populares.filter(populares=>  populares.id !== id)
 this.setState({
   populares: resto
