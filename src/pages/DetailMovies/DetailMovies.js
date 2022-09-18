@@ -44,7 +44,7 @@ class DetailMovies extends Component {
                 <div className="boton-favoritos">
                     <div className="detail-favoritos">
                         <i className="fas fa-star star" id="star"></i>
-                        <button className="fav">Agregar a Favoritos</button>   
+                        <button  className="fav">Agregar a Favoritos</button>   
                     </div>
                 </div>
              </div>
