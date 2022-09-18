@@ -1,17 +1,16 @@
 import React from 'react' 
 import {Link} from 'react-router-dom'
-
-
+import "./Nav.css";
 
 
 export default function Nav() {
-    
+
   return (
 
     <header>
         <nav>
-                <div className="burguermenu">
-                            
+                <div id="logo" > 
+                    <Link to="/"> <img className="logo" src="/img/logo.png" alt='logo'/></Link>
                 </div>
                 <div className="header-nav">
                     <Link className="header-nav" aria-current="page" to="/">Inicio</Link>
@@ -24,14 +23,6 @@ export default function Nav() {
                 </div>  
                 <div className="header-nav">
                     <Link className="header-nav" to='/favourites' aria-current="page">Favoritos</Link>
-                </div>
-                <div className= "header-busqueda">
-                        <form action="" method="GET">
-                            <input type="search" name="busqueda"  placeholder="Buscar películas o series"
-                             />
-                            <p className="alert"></p>
-                        </form>
-                        <a href="./results.html"><i className="fas fa-search lupa"></i></a>
                 </div>
           </nav>
     </header>
