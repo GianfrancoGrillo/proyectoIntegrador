@@ -9,6 +9,8 @@ class DetailMovies extends Component {
             pelicula: {},
             favoritos: [],
             button: [],
+            genero:'',
+            cargando: true,
         }
     }
 
@@ -23,7 +25,10 @@ class DetailMovies extends Component {
         fetch(`https://api.themoviedb.org/3/movie/${this.state.id}?api_key=fcb65972de75954111563f90b05f9fed`)
             .then(res => res.json())
             .then(data => this.setState({
+                cargando: false,
                 pelicula: data,
+                genero: data.genres[1].name,
+                button: JSON.parse(localStorage.getItem('favoritos')).some((fav)=> fav.id === this.state.pelicula.id)
             }))
             .catch(error => console.log(error))
     }
@@ -51,8 +56,13 @@ handleButton(){
     const imagen = 'https://image.tmdb.org/t/p/w342'
 
     return (
+<>
+     {this.state.cargando === true ? <><section className='loading'><h1 style={{color: 'white'}}>Cargando...</h1></section></>
+     
+     : 
+     
      <>
-        <div className="titulo">
+     <div className="titulo">
           <h2>• {this.state.pelicula.title} •</h2>
         </div>
       <section className='contenedor'>
@@ -63,7 +73,7 @@ handleButton(){
                 {/* <p>${generos}</p> */}
             </div>
             <div className="detailseriessinopsis-container">                      
-                <h3 className="movie"> Género: {this.state.pelicula.genre}</h3>
+                <h3 className="movie"> Género: {this.state.genero}</h3>
                 <h3 className="movie"> Fecha de estreno: {this.state.pelicula.release_date}</h3>
                 <h3 className="movie"> Calificacion: {this.state.pelicula.vote_average}</h3>
                 <h3 className="movie"> Duración: {this.state.pelicula.runtime}</h3>
@@ -77,14 +87,12 @@ handleButton(){
              </div>
         </div>
     </section>
-     </>   
+    </>}   
+           
+</>   
    
   )
-
-
 }
-
-
 }
 
 export default DetailMovies;

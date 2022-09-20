@@ -10,7 +10,7 @@ export default function Nav() {
     <header>
         <nav>
                 <div id="logo" > 
-                    <Link to="/"> <img className="logo" src="/img/logo.png" alt='logo'/></Link>
+                    <Link to="/"> <img className="logo" src="/img/logo.jpeg" alt='logo'/></Link>
                 </div>
                 <div className="header-nav">
                     <Link className="header-nav" aria-current="page" to="/">Inicio</Link>

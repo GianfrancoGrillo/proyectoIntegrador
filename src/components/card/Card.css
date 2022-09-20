@@ -1,6 +1,6 @@
 .imagen-port{
     display: block;
-    background-color:#007aff;
+    background-color:#e71d1de2;
     max-width: 250px;
     align-items: center;
     margin: 4%;
@@ -35,7 +35,7 @@
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    background-color:#080f28;
+    background-color:#4b0a0a;
 }
 
 

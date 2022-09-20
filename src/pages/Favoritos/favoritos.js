@@ -19,9 +19,9 @@ class Favoritos extends Component {
   }
 
   handleFavoritos(card){
-    if (this.state.favoritos.some(fav => card.id === fav.id)) {
+    if (this.state.favoritos.some(fav => card.id === fav.id)) { //actualiza el estado de favoritos
         this.setState({favoritos: this.state.favoritos.filter(item => item.id !== card.id)}, () => {//asincronismo del this.State ",()"
-            localStorage.setItem("favoritos", JSON.stringify(this.state.favoritos))
+            localStorage.setItem("favoritos", JSON.stringify(this.state.favoritos)) //actualiza el estado del Storage
         })
         console.log(this.state.favoritos.filter(item => item.id !== card.id))
     } else {                                                               

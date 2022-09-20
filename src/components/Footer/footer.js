@@ -9,7 +9,7 @@ function Footer(){
             <article className="container_footer">
                 <div className="box-footer">
                     <div className="logo">
-                        <img src="/img/logo.png" alt="logo"/>
+                        <img src="/img/logo.jpeg" alt="logo"/>
                     </div>
                     <div className="terms">
                     </div>
@@ -50,9 +50,9 @@ function Footer(){
                 </div>
              
                 <div className="box-copyright">
-                    <p className="integrantes"> Banfilms es un servicio de streaming gratuito que tiene como objetivo que todas las personas puedan accerder a contenido de calidad. Surge como una iniciativa de la coorporativa DI Code, encabezada y desarrollada por sus dueños fundadores Chiterer Sebastian y Cristiano Banfi.</p>
+                    <p className="integrantes"> PELISPE es un servicio de streaming gratuito que tiene como objetivo que todas las personas puedan accerder a contenido de calidad. Surge como una iniciativa de la coorporativa DI Code, encabezada y desarrollada por sus dueños fundadores Martiniano Sanchez y Gianfranco Grillo.</p>
                     <hr/>
-                    <p className="derechos">Todos los derechos reservados <i className="far fa-copyright"></i> 2021 <b>Banfilms</b></p>
+                    <p className="derechos">Todos los derechos reservados <i className="far fa-copyright"></i> 2022 <b>PELISPE</b></p>
                 </div>
             </article>
         </footer>

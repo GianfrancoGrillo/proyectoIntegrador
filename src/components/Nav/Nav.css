@@ -1,5 +1,5 @@
 body header{
-    background-color: #080f28;
+    background-color: #600e0e;
     background-repeat: no-repeat;
     background-position: top;
     height: 125px;
@@ -8,9 +8,9 @@ body header{
 .header-nav a{
     text-decoration: none;
     color: white;  
-    margin-top: 10px;
-    padding: 10px 45px;
-    background-color:#007aff;
+    margin-top: 5px;
+    padding: 10px 30px;
+    background-color:#4b0a0a;
     font-weight: bolder;
     border-radius: 15px;
 }
